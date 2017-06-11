@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example of Bootstrap 3 Modals</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#myModal").modal('show');
+        });
+    </script>
+    <style>
+        .modal-header {
+            background-color: #f7f7f9;
+        }
+        
+        #foo {
+            color: #ffa500;
+        }
+        
+        #orangeBar {
+            background-color: #f0ad4e;
+            width: 80%;
+            height: 10px;
+            float: left;
+            margin-bottom: 1em;
+        }
+        
+        #greyBar {
+            background-color: #ddd;
+            width: 20%;
+            height: 10px;
+            float: left;
+            margin-bottom: 1em;
+        }
+        
+        #space {
+            padding: 1em;
+        }
+        
+        .btn {
+            border: none;
+        }
+        
+        .btn-default {
+            background-color: #eee;
+            padding-bottom: 0.5em;
+        }
+        
+        .modal-footer {
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="orangeBar"></div>
+                <div id="greyBar"></div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><strong id="foo">$167 still needed</strong> for this project</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Join the other 42 donors who have already supported this project. Every dollar helps.</p>
+                </div>
+                <div class="modal-footer">
+                    <form class="col-xs-12 form-inline" action="page.php">
+                        <div class="form-group col-xs-6">
+                            <label for="number" class="hidden-xs">$</label>
+                            <input type="number" class="form-control" id="number" value="50">
+                            <p class="text-left" id="space"><small><em>Why give $50?</em></small></p>
+                        </div>
+                        <button type="button" class="btn btn-success col-xs-6">Give now</button>
+                    </form>
+                    <div class="col-sm-12" id="box">
+                        <a href="#" role="button" class="btn btn-default col-sm-4 col-sm-offset-1">Save for later</a>
+                        <a href="#" role="button" class="btn btn-default col-sm-4 col-sm-offset-1">Tell you friends</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
