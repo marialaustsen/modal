@@ -19,6 +19,23 @@
             background-color: #f7f7f9;
         }
         
+        .modal-body {
+            height: 130px;
+        }
+        
+        .modal-footer {
+            padding: 30px;
+        }
+        
+        .btn {
+            border: none;
+        }
+        
+        .btn-default {
+            background-color: #eee;
+            padding-bottom: 0.5em;
+        }
+        
         #foo {
             color: #ffa500;
         }
@@ -39,22 +56,7 @@
             margin-bottom: 1em;
         }
         
-        #space {
-            padding: 1em;
-        }
-        
-        .btn {
-            border: none;
-        }
-        
-        .btn-default {
-            background-color: #eee;
-            padding-bottom: 0.5em;
-        }
-        
-        .modal-footer {
-            padding: 30px;
-        }
+        #space {}
     </style>
 </head>
 
@@ -69,17 +71,21 @@
                     <h4 class="modal-title"><strong id="foo">$167 still needed</strong> for this project</h4>
                 </div>
                 <div class="modal-body">
+
                     <p>Join the other 42 donors who have already supported this project. Every dollar helps.</p>
-                </div>
-                <div class="modal-footer">
-                    <form class="col-xs-12 form-inline" action="page.php">
+                    <form class="form-inline col-xs-12" role="form" action="page.php">
                         <div class="form-group col-xs-6">
                             <label for="number" class="hidden-xs">$</label>
                             <input type="number" class="form-control" id="number" value="50">
                             <p class="text-left" id="space"><small><em>Why give $50?</em></small></p>
                         </div>
+
                         <button type="button" class="btn btn-success col-xs-6">Give now</button>
+
                     </form>
+                </div>
+                <div class="modal-footer">
+
                     <div class="col-sm-12" id="box">
                         <a href="#" role="button" class="btn btn-default col-sm-4 col-sm-offset-1">Save for later</a>
                         <a href="#" role="button" class="btn btn-default col-sm-4 col-sm-offset-1">Tell you friends</a>
