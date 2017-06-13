@@ -14,6 +14,33 @@
             $("#myModal").modal('show');
         });
     </script>
+    <script>
+        /* must apply only after HTML has loaded */
+        $(document).ready(function() {
+            $("#contact_form").on("submit", function(e) {
+                var postData = $(this).serializeArray();
+                var formURL = $(this).attr("action");
+                $.ajax({
+                    url: formURL,
+                    type: "POST",
+                    data: postData,
+                    success: function(data, textStatus, jqXHR) {
+                        $('#myModal .modal-header .modal-title').html("Thank You!!");
+                        $('#myModal .modal-body').html(data);
+                        $("#submitForm").remove();
+                    },
+                    error: function(jqXHR, status, error) {
+                        console.log(status + ": " + error);
+                    }
+                });
+                e.preventDefault();
+            });
+
+            $("#submitForm").on('click', function() {
+                $("#contact_form").submit();
+            });
+        });
+    </script>
     <style>
         .modal-header {
             background-color: #f7f7f9;
@@ -56,7 +83,9 @@
             margin-bottom: 1em;
         }
         
-        #space {}
+        #space {
+            margin-bottom: 1.5em;
+        }
     </style>
 </head>
 
@@ -73,17 +102,20 @@
                 <div class="modal-body">
 
                     <p>Join the other 42 donors who have already supported this project. Every dollar helps.</p>
-                    <form class="form-inline col-xs-12" role="form" action="page.php">
+                    <hr>
+                    <form id="contact_form" class="form-inline col-xs-12" role="form" action="page.php" method="POST">
                         <div class="form-group col-xs-6">
                             <label for="number" class="hidden-xs">$</label>
-                            <input type="number" class="form-control" id="number" value="50">
+                            <input type="number" class="form-control" id="number" name="number" value="50">
                             <p class="text-left" id="space"><small><em>Why give $50?</em></small></p>
+
                         </div>
 
-                        <button type="button" class="btn btn-success col-xs-6" value="submit">Give now</button>
+                        <button type="button" class="btn btn-success col-xs-6" id="submitForm">Give now</button>
 
                     </form>
                 </div>
+
                 <div class="modal-footer">
 
                     <div class="col-sm-12" id="box">
